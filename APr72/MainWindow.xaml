@@ -1,4 +1,4 @@
-﻿<Window x:Class="APr72.MainWindow"
+<Window x:Class="APr72.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:APr72"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel Orientation="Vertical">
+        <TextBlock>n</TextBlock>
+        <TextBox x:Name="n" ToolTip="N" PreviewTextInput="validate"></TextBox>
+        <TextBlock>d</TextBlock>
+        <TextBox x:Name="d" ToolTip="D" PreviewTextInput="validate"></TextBox>
+        <TextBlock>e</TextBlock>
+        <TextBox x:Name="e" ToolTip="E" PreviewTextInput="validate"></TextBox>
+        <StackPanel Orientation="Horizontal">
+            <Button x:Name="btn_generate" ToolTip="Кнопка для генерации ключей" Click="btn_generate_Click">Сгенерировать ключи</Button>
+            <Button x:Name="btn_encrypt" ToolTip="Кнопка для шифрования" Click="btn_encrypt_Click">Зашифровать</Button>
+            <Button x:Name="btn_decrypt" ToolTip="Кнопка для расшифрования" Click="BtnDecrypt_Click">Расшифровать</Button>
+        </StackPanel>
+        <TextBlock ToolTip="Буквы, складывающиеся в слова Ввод/вывод">Ввод/вывод</TextBlock>
+        <TextBox x:Name="the_text" ToolTip="Поле ввода текстов, шифрованных либо нешифрованных"></TextBox>
+    </StackPanel>
 </Window>
