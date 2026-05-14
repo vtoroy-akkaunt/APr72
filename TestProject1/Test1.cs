@@ -15,10 +15,10 @@ namespace TestProject1 {
         }
         [TestMethod]
         public void InvalidInput() {
-            Assert.ThrowsException<Exception>(() => Core.encrypt(null, null, null));
+            Assert.ThrowsException<Exception>(() => Core.encrypt(null, 0, 0));
             Assert.ThrowsException<Exception>(() => Core.encrypt("1", 1, 1));
             Assert.ThrowsException<Exception>(() => Core.encrypt("Z", 187, 3));
-            Assert.ThrowsException<Exception>(() => Core.decrypt(null, null, null));
+            Assert.ThrowsException<Exception>(() => Core.decrypt(null, 0, 0));
             Assert.ThrowsException<Exception>(() => Core.decrypt("1", 1, 1));
             Assert.ThrowsException<Exception>(() => Core.decrypt("Z", 187, 3));
         }
