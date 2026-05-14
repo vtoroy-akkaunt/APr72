@@ -56,3 +56,41 @@
 8. ИсходныйТекст = (3 ^ 5) % 35 = 243 % 35 = 33.
 
 Оформление: весь код в папке проекта, весь текст в Readme, все картинки в файлах рядом.
+
+## Диаграмма вариантов использования
+
+![смешная картинка](./diagram.svg)
+
+```plantuml
+@startuml
+left to right direction
+
+actor "Получатель" as Alice
+actor "Отправитель" as Bob
+actor "Пользователь" as User
+
+Alice --|> User
+Bob   --|> User
+
+rectangle "Приложение RSA-шифрования" {
+    usecase "Сгенерировать ключи" as gen_keys
+    usecase "Зашифровать" as encrypt
+    usecase "Расшифровать" as decrypt
+    
+    usecase "Валидация параметров" as validate_params
+    usecase "Валидация текста" as validate_text
+    usecase "Просмотреть подсказки" as viewing_tips
+
+    Alice -- gen_keys
+    Bob   -- encrypt
+    Alice -- decrypt
+    User  -- viewing_tips
+
+    encrypt ..> validate_params : includes
+    decrypt ..> validate_params : includes
+
+    encrypt ..> validate_text   : includes
+    decrypt ..> validate_text   : includes
+}
+@enduml
+```
